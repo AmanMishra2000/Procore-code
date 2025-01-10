@@ -13,10 +13,6 @@ app = FastAPI()
 
 # OAuth2 configuration
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-
-def validate_token(token: str):
-    if token != "your_access_token":  # Replace with your actual token validation logic
-        raise HTTPException(status_code=403, detail="Invalid or expired token")
     
 class Project(BaseModel):
     id: int
@@ -67,7 +63,6 @@ def init_db():
 
 @app.post("/import_project", dependencies=[Depends(oauth2_scheme)])
 def import_project(project: Project, token: str = Depends(oauth2_scheme)):
-    validate_token(token)
     print(f"Received project: {project}")  
     db = connect_db()
     cursor = db.cursor()
@@ -92,7 +87,6 @@ def import_project(project: Project, token: str = Depends(oauth2_scheme)):
 
 @app.get("/get_project/{project_id}", dependencies=[Depends(oauth2_scheme)])
 def get_project(project_id: int, token: str = Depends(oauth2_scheme)):
-    validate_token(token)
     db = connect_db()
     cursor = db.cursor()
     cursor.execute("SELECT * FROM projects WHERE id = %s", (project_id,))
