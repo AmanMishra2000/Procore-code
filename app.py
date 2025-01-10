@@ -1,4 +1,5 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Depends
+from fastapi.security import OAuth2PasswordBearer
 from pydantic import BaseModel
 from dotenv import load_dotenv
 import psycopg2
@@ -10,6 +11,13 @@ load_dotenv()
 
 app = FastAPI()
 
+# OAuth2 configuration
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+def validate_token(token: str):
+    if token != "your_access_token":  # Replace with your actual token validation logic
+        raise HTTPException(status_code=403, detail="Invalid or expired token")
+    
 class Project(BaseModel):
     id: int
     name: str
@@ -57,9 +65,10 @@ def init_db():
     cursor.close()
     db.close()
 
-@app.post("/import_project")
-def import_project(project: Project):
-    print(f"Received project: {project}")  # This will show the incoming data for debugging
+@app.post("/import_project", dependencies=[Depends(oauth2_scheme)])
+def import_project(project: Project, token: str = Depends(oauth2_scheme)):
+    validate_token(token)
+    print(f"Received project: {project}")  
     db = connect_db()
     cursor = db.cursor()
 
@@ -81,9 +90,9 @@ def import_project(project: Project):
 
     return {"message": "Project imported successfully", "project": project}
 
-@app.get("/get_project/{project_id}")
-def get_project(project_id: int):
-    # Endpoint to get project by ID
+@app.get("/get_project/{project_id}", dependencies=[Depends(oauth2_scheme)])
+def get_project(project_id: int, token: str = Depends(oauth2_scheme)):
+    validate_token(token)
     db = connect_db()
     cursor = db.cursor()
     cursor.execute("SELECT * FROM projects WHERE id = %s", (project_id,))
@@ -98,4 +107,4 @@ def get_project(project_id: int):
 @app.get("/")
 def health_check():
     # Simple health check endpoint
-    return {"message": "API is running!"} 
+    return {"message": "API is running!"}
