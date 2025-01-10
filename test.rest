@@ -1,0 +1,19 @@
+###
+GET http://127.0.0.1:8000/get_project/6
+
+
+###
+POST http://127.0.0.1:8000/import_project
+Content-Type: application/json
+
+{
+  "id": 7,
+  "name": "Project seven",
+  "status": "active"
+}
+
+
+
+
+
+
