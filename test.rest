@@ -1,16 +1,28 @@
-###
-GET http://127.0.0.1:8000/get_project/6
+### 
+GET https://procore-code-6.onrender.com/get_project/10
 
 
 ###
-POST http://127.0.0.1:8000/import_project
+POST https://procore-code-6.onrender.com/import_project
 Content-Type: application/json
 
 {
-  "id": 7,
-  "name": "Project seven",
+  "id": 10,
+  "name": "Project Nine",
   "status": "active"
 }
+###
+POST http://127.0.0.1:8000/import_project 
+Content-Type: application/json
+
+{
+"id": 7, 
+"name": "Project seven", 
+"status": "active"
+}
+
+
+
 
 
 
