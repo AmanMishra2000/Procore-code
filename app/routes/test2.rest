@@ -1,0 +1,137 @@
+###
+GET http://login.procore.com/import-projects/4267423
+Authorization: Bearer eyJhbGciOiJFUzUxMiJ9.eyJhbXIiOltdLCJhaWQiOiJBYTdWa0x2dk1lWHNoNm5Bb3Z0bm5IS2RVck5PcVM3VVBObkYyN2szSy1ZIiwiYW91aWQiOjEyOTQ0Nzc4LCJhb3V1aWQiOiIyNGVmNjFhNC0xNGY0LTQ4ZTQtYjc4OS0wOWY3NGUyNjhiZmQiLCJleHAiOjE3MzY3MDU4MzYsInNpYXQiOm51bGwsInVpZCI6bnVsbCwidXVpZCI6bnVsbCwibGFzdF9tZmFfY2hlY2siOjE3MzY3MDA0MzZ9.AMt8YToBmUTZ4LfMQook4XArv3CD_QEzy9aD5MCj694w_yH7W8P0iIbG5yPUKnzRYifnGSndWe-BSii5kpg8SYmAAaGLBTlRmUNz8KzG6f_VqTmcIGPhv9qCfLAsWy5PO10qB_xDsfRn9pYmWhmCYZhWlyDSSuaeTs-xwNW8y2W_MJC1
+
+#Production
+###
+POST https://login.procore.com/oauth/token
+content-Type: application/json
+
+{
+    "grant_type": "client_credentials",
+    "client_id": "Aa7VkLvvMeXsh6nAovtnnHKdUrNOqS7UPNnF27k3K-Y",
+    "client_secret": "fbZfMG1wgqP_TLhmzCsSio2NnBDEr3I6IIzo5IRv578"
+}
+
+#Sandbox
+###
+POST https://sandbox.procore.com/oauth/token
+Content-Type: application/json
+
+{
+    "grant_type": "client_credentials",
+    "client_id": "VNnOn0f0pjihYQtW08RjbTg1uw7lPWQyn7Cs-Hlbxqg",
+    "client_secret": "Wccw81rmqI0O4mFG8FdB4HfILJGpOBg2dM79VwVi8ss"
+}
+
+
+
+###
+POST https://sandbox.procore.com/oauth/token
+Content-Type: application/json
+
+{
+    "grant_type": "refresh_token",
+    "client_id": "VNnOn0f0pjihYQtW08RjbTg1uw7lPWQyn7Cs-Hlbxqg",
+    "client_secret": "Wccw81rmqI0O4mFG8FdB4HfILJGpOBg2dM79VwVi8ss",
+    "refresh_token": "eyJhbGciOiJFUzUxMiJ9.eyJhbXIiOltdLCJhaWQiOiJWTm5PbjBmMHBqaWhZUXRXMDhSamJUZzF1dzdsUFdReW43Q3MtSGxieHFnIiwiYW91aWQiOjE0MTY5MSwiYW91dWlkIjoiYWMwNDk2NDAtZTY2MS00NDgyLTgxMDItYmRlOTRhOWI3YjRkIiwiZXhwIjoxNzM2NzE0NjY4LCJzaWF0IjpudWxsLCJ1aWQiOm51bGwsInV1aWQiOm51bGwsImxhc3RfbWZhX2NoZWNrIjoxNzM2NzA5MjY4fQ.AE7UquZktyf3z8nRFJpjiF6YHYdRYGyd62P8OZMOL7nRnV0p9YMWalr2Hqu4T-rergUT16KXjSiDvZaGjZlInpikAFykhNA6wFWLBTOx0vcT6nhe4lqyA3zN52KPN8i37EV3D398HmEcD6FjO2aF_DYh4tmRvS7E5cP0eDb_s5GiqbB0"
+}
+
+Get all Projects
+###
+GET https://sandbox.procore.com/rest/v1.0/companies/4267423/projects
+Authorization: Bearer eyJhbGciOiJFUzUxMiJ9.eyJhbXIiOltdLCJhaWQiOiJWTm5PbjBmMHBqaWhZUXRXMDhSamJUZzF1dzdsUFdReW43Q3MtSGxieHFnIiwiYW91aWQiOjE0MTY5MSwiYW91dWlkIjoiYWMwNDk2NDAtZTY2MS00NDgyLTgxMDItYmRlOTRhOWI3YjRkIiwiZXhwIjoxNzM2NzIzMDY2LCJzaWF0IjpudWxsLCJ1aWQiOm51bGwsInV1aWQiOm51bGwsImxhc3RfbWZhX2NoZWNrIjoxNzM2NzE3NjY2fQ.AFfjNWTw_VS1bf5DCEj5CEUNAr28-rV-a_2Io-D6GW2O2SeULBaNs2GJ9iXtz8Oe2eU3Yj4htV-Nys8jPgFaHAE3AVHs1CR80Vk7HXCOqnJvasn3FPHEW8XnaikYYClciLb4K4sxPWBzWsuvMTulBq4KuPOWlKW1rA2I4go9Dnn2oIl9
+Procore-Company-Id: 4267423
+Content-Type: application/json
+
+
+###
+POST https://sandbox.procore.com/rest/v1.0/companies/4267423/project_types
+Authorization: Bearer eyJhbGciOiJFUzUxMiJ9.eyJhbXIiOltdLCJhaWQiOiJWTm5PbjBmMHBqaWhZUXRXMDhSamJUZzF1dzdsUFdReW43Q3MtSGxieHFnIiwiYW91aWQiOjE0MTY5MSwiYW91dWlkIjoiYWMwNDk2NDAtZTY2MS00NDgyLTgxMDItYmRlOTRhOWI3YjRkIiwiZXhwIjoxNzM2NzE0NjY4LCJzaWF0IjpudWxsLCJ1aWQiOm51bGwsInV1aWQiOm51bGwsImxhc3RfbWZhX2NoZWNrIjoxNzM2NzA5MjY4fQ.AE7UquZktyf3z8nRFJpjiF6YHYdRYGyd62P8OZMOL7nRnV0p9YMWalr2Hqu4T-rergUT16KXjSiDvZaGjZlInpikAFykhNA6wFWLBTOx0vcT6nhe4lqyA3zN52KPN8i37EV3D398HmEcD6FjO2aF_DYh4tmRvS7E5cP0eDb_s5GiqbB0
+Procore-Company-Id: 4267423
+Content-Type: application/json
+
+{
+    "project_type": {
+        "name": "New Project Type Name"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+# Webhook 
+###
+POST https://sandbox.procore.com/rest/v1.0/webhooks/hooks
+content-Type: application/json
+Authorization: Bearer eyJhbGciOiJFUzUxMiJ9.eyJhbXIiOltdLCJhaWQiOiJBYTdWa0x2dk1lWHNoNm5Bb3Z0bm5IS2RVck5PcVM3VVBObkYyN2szSy1ZIiwiYW91aWQiOjEyOTQ0Nzc4LCJhb3V1aWQiOiIyNGVmNjFhNC0xNGY0LTQ4ZTQtYjc4OS0wOWY3NGUyNjhiZmQiLCJleHAiOjE3MzY3MDU4MzYsInNpYXQiOm51bGwsInVpZCI6bnVsbCwidXVpZCI6bnVsbCwibGFzdF9tZmFfY2hlY2siOjE3MzY3MDA0MzZ9.AMt8YToBmUTZ4LfMQook4XArv3CD_QEzy9aD5MCj694w_yH7W8P0iIbG5yPUKnzRYifnGSndWe-BSii5kpg8SYmAAaGLBTlRmUNz8KzG6f_VqTmcIGPhv9qCfLAsWy5PO10qB_xDsfRn9pYmWhmCYZhWlyDSSuaeTs-xwNW8y2W_MJC1
+Procore-Company-Id: 4267423
+
+{
+  "company_id": 4267423,
+  "hook": {
+    "api_version": "v2",
+    "namespace": "procore",
+    "destination_url": "http://0.0.0.0:8000/webhook",
+    "destination_headers": {
+      "Authorization": "Bearer eyJhbGciOiJFUzUxMiJ9.eyJhbXIiOltdLCJhaWQiOiJBYTdWa0x2dk1lWHNoNm5Bb3Z0bm5IS2RVck5PcVM3VVBObkYyN2szSy1ZIiwiYW91aWQiOjEyOTQ0Nzc4LCJhb3V1aWQiOiIyNGVmNjFhNC0xNGY0LTQ4ZTQtYjc4OS0wOWY3NGUyNjhiZmQiLCJleHAiOjE3MzY3MDU4MzYsInNpYXQiOm51bGwsInVpZCI6bnVsbCwidXVpZCI6bnVsbCwibGFzdF9tZmFfY2hlY2siOjE3MzY3MDA0MzZ9.AMt8YToBmUTZ4LfMQook4XArv3CD_QEzy9aD5MCj694w_yH7W8P0iIbG5yPUKnzRYifnGSndWe-BSii5kpg8SYmAAaGLBTlRmUNz8KzG6f_VqTmcIGPhv9qCfLAsWy5PO10qB_xDsfRn9pYmWhmCYZhWlyDSSuaeTs-xwNW8y2W_MJC1"
+    }
+  }
+}
+
+
+
+###
+POST https://sandbox.procore.com/rest/v1.0/projects/import-projects/4267423
+content-Type: application/json
+Authorization: Bearer eyJhbGciOiJFUzUxMiJ9.eyJhbXIiOltdLCJhaWQiOiJBYTdWa0x2dk1lWHNoNm5Bb3Z0bm5IS2RVck5PcVM3VVBObkYyN2szSy1ZIiwiYW91aWQiOjEyOTQ0Nzc4LCJhb3V1aWQiOiIyNGVmNjFhNC0xNGY0LTQ4ZTQtYjc4OS0wOWY3NGUyNjhiZmQiLCJleHAiOjE3MzY3MTE2NjksInNpYXQiOm51bGwsInVpZCI6bnVsbCwidXVpZCI6bnVsbCwibGFzdF9tZmFfY2hlY2siOjE3MzY3MDYyNjl9.ATrqGsmQHuDWY5YIzQpI-jyTYVRSCLhajZXS8p6uwb1HeJsB3CgOMUwAwe2fQcHxeOlrK0beQ2ZoNCTUxajhUqloARohpfkX36mmPLCyHQrkLdQmx5RUI8Di5xpqTJwKsZFDBEWxeyOwmlkWdbSwz7ydl9nGRl8qZ8J2K8-ZXV6KJWMv
+
+{
+  "import_data": {
+    "some_field": "1234",
+    "another_field": "5565"
+  }
+}
+
+
+
+###
+POST https://login.procore.com/oauth/token
+content-Type: application/x-www-form-urlencoded
+
+{
+  "grant_type": "refresh_token",
+  "client_id": "Aa7VkLvvMeXsh6nAovtnnHKdUrNOqS7UPNnF27k3K-Y",
+  "client_secret": "fbZfMG1wgqP_TLhmzCsSio2NnBDEr3I6IIzo5IRv578",
+  "code": "8957b84a67f6ae55ab79c9767836a0af30b7fb7e4c36b27434993123cce71ec7",
+  "redirect_uri": "http://localhost",
+  "refresh_token": "eyJhbGciOiJFUzUxMiJ9.eyJhbXIiOltdLCJhaWQiOiJBYTdWa0x2dk1lWHNoNm5Bb3Z0bm5IS2RVck5PcVM3VVBObkYyN2szSy1ZIiwiYW91aWQiOjEyOTQ0Nzc4LCJhb3V1aWQiOiIyNGVmNjFhNC0xNGY0LTQ4ZTQtYjc4OS0wOWY3NGUyNjhiZmQiLCJleHAiOjE3MzY3MDU4MzYsInNpYXQiOm51bGwsInVpZCI6bnVsbCwidXVpZCI6bnVsbCwibGFzdF9tZmFfY2hlY2siOjE3MzY3MDA0MzZ9.AMt8YToBmUTZ4LfMQook4XArv3CD_QEzy9aD5MCj694w_yH7W8P0iIbG5yPUKnzRYifnGSndWe-BSii5kpg8SYmAAaGLBTlRmUNz8KzG6f_VqTmcIGPhv9qCfLAsWy5PO10qB_xDsfRn9pYmWhmCYZhWlyDSSuaeTs-xwNW8y2W_MJC1"
+}
+
+
+
+#
+Create Webhook
+###
+POST https://sandbox.procore.com/rest/v1.0/webhooks/hooks
+Content-Type: application/json
+Procore-Company-Id: 4267423
+Authorization: Bearer eyJhbGciOiJFUzUxMiJ9.eyJhbXIiOltdLCJhaWQiOiJWTm5PbjBmMHBqaWhZUXRXMDhSamJUZzF1dzdsUFdReW43Q3MtSGxieHFnIiwiYW91aWQiOjE0MTY5MSwiYW91dWlkIjoiYWMwNDk2NDAtZTY2MS00NDgyLTgxMDItYmRlOTRhOWI3YjRkIiwiZXhwIjoxNzM2NzIzMDY2LCJzaWF0IjpudWxsLCJ1aWQiOm51bGwsInV1aWQiOm51bGwsImxhc3RfbWZhX2NoZWNrIjoxNzM2NzE3NjY2fQ.AFfjNWTw_VS1bf5DCEj5CEUNAr28-rV-a_2Io-D6GW2O2SeULBaNs2GJ9iXtz8Oe2eU3Yj4htV-Nys8jPgFaHAE3AVHs1CR80Vk7HXCOqnJvasn3FPHEW8XnaikYYClciLb4K4sxPWBzWsuvMTulBq4KuPOWlKW1rA2I4go9Dnn2oIl9
+
+{
+  "company_id": 4267423,
+  "hook": {
+    "api_version": "v2",
+    "namespace": "procore",
+    "destination_url": "https://procore-code-6.onrender.com/webhook",
+    "destination_headers": {
+      "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzUxMiJ9"
+    }
+  }
+}
